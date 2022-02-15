@@ -1,0 +1,300 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type ="text/css" href="{% static 'website/style.css'%}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<title>RitikWithout_H</title>
+	<link rel="shortcut icon" href="images/icons/logo.jpg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+</head>
+<body>
+	
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+			<div class="container-fluid ps-5 pe-1 p-2">
+			  	<a class="brand navbar-brand d-flex " href="{% url 'main-page'%}">
+				  <img src="images/icons/logo.jpg" alt="logo" class="icon img-fluid" >
+				  <h5 class="pt-1 m-1">RITIKWITHOUT_H</h5>
+				</a>
+			 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  	</button>
+			  	<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+					<ul class="navbar-nav ">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="#">HOME</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="#about">ABOUT</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="#Service">SERVICES</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#project">PROJECTS</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#blog-list">BLOGS</a>
+						</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<main>
+		<div class="container intro-page">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-md-4 ">
+					<img src="images/pictures/mah.png" alt="my pic" class="front-img">
+					<div class="social-media p-2 text-center">
+						<a href="#" class="fa fa-facebook"></a>
+						<a href="#" class="fa fa-instagram"></a>
+						<a href="#" class="fa fa-pinterest"></a>
+						<a href="#" class="fa fa-github"></a>
+					</div>
+				</div>
+				<div class="bio-content col-md-8 ps-5">
+					<div class="title">DEVEOPER / PROGRAMMER</div>
+					<div class="name">RITIK LAL SHRESTHA</div>
+					<div class="bio pt-2">Hello, My name is Ritik Lal Shrestha and I am Nepali currently studying Bsc. CSIT in Prime College and made this website just to test my skills and my future goals are to improve on software developing skills, coding skills and other interactive skills.</div>
+					<div class="btns">
+						<a href="#" class="buttons text-decoration-none p-3 me-3 ">DOWNLOAD CV</a>
+						<a href="#" class="buttons text-decoration-none p-3">COLLAB WITH ME</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container" >
+			<h5 class="section-title text-center pb-5" id= "about">ABOUT ME</h5>
+			<div class="row about">
+				<div class="bio text-center p-3">As in most cases in web development, there is more than one way to achieve t	he same result. Choosing the right approach for your project depends on what you think is easiest to remember and maintain. Personally, I like Option 1 because it allows you to horizontally center the column on large screens and then go full width on mobile</div>
+				<nav class="navbar navbar-expand ">
+					<div class="container">
+					  	<div class="navbar-collapse  justify-content-center"
+						id="navbarCenteredExample">
+						
+							<ul class="navbar-nav mb-2 mb-lg-0 " id="navBtn">
+								<li class="nav-item" >
+									<a class="nav-link-tab " data-bs-toggle="collapse" onclick="openTab(event, 'Experience')">
+										EXPERIENCE</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link-tab" onclick="openTab(event, 'Education')" id="defaultActive">EDUCATIONS</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link-tab" onclick="openTab(event, 'Skills')">SKILLS</a>
+								</li>
+								
+							</ul>
+						</div>
+						
+					</div>
+				</nav>
+				
+				<div class="container pb-5">
+					<div class="row  justify-content-center ">
+						<div class="content row" id = "Education" >
+							{% for obj in educations %}
+							<div class=" col-md-7 col-xs-2 pt-3 mt-2 ">
+								<div class="card-container p-4 ">
+									<i class="fa fa-calendar" > <span class="time">{{obj.startingtime}} - {{obj.endingtime}}</span></i>
+									<h5 class="about-title pt-3">{{obj.title|upper}}</h5>
+									<p>{{obj.content}}</p>
+
+									<small class="colg-name">{{obj.college}}</small>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+							
+						
+					</div>
+					<div class="row">
+						<div class="content" id="Skills">
+							<div id="barchart_values" style="width: 900px; height: 500px;"></div>
+
+						</div>
+					</div>
+					
+					<div class=" row justify-content-center">
+						<div class="content row "  id = "Experience" >
+							{% for obj in object %}
+							<div class=" col-md-7 pt-3 mt-2">
+								<div class="card-container p-4 ">
+									<i class="fa fa-calendar" > <span class="time">{{obj.time_interval|upper}}</span></i>
+									<h5 class="about-title pt-3">{{obj.experience|upper	}}</h5>
+									<p>{{obj.content}}</p>
+
+									<a href="{{obj.link}}" class="text-decoration-none text-dark"><small class="colg-name">{{obj.company}}</small></a>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+						
+				
+					
+				</div>
+			</div>
+		</div>
+		<div class="container pb-5 pt-5" id="Service">
+			<div class="row justify-content-center">
+				<div class="col-md-6">
+					<h5 class="section-title text-center" >MY SERVICES</h5>
+					<p class=" service-para text-center">At about this time of year, some months after New Year's resolutions have been made and kept, or made and neglected.</p>
+				</div>
+				<div class="row justify-content-evenly">
+					{% for service in services %}
+					<div class="service-content col-md-3 justify-content-center align-items-center pt-5 m-5">
+						<div class="text-center">
+							<span class="lnr {{service.icon}} "></span>
+						</div>
+						<h1 class="text-title pt-3">{{service.title}}</h1>
+						<p class=" service-para text-center ">{{service.content}}</p>
+					</div>
+					{% endfor %}
+				</div>
+				
+
+			</div>
+		</div>
+		<div class="container pb-5 pt-5" id="project">
+			<h5 class="section-title text-center">FEATURED PROJECTS</h5>
+			<p class=" service-para text-center">All the below projects are either completed or need to be finished or just an idea. </p>
+			
+			<div class="container pt-5">
+				<div class="row about">
+					<nav class="navbar navbar-expand ">
+						<div class="container">
+							
+							<div class=" navbar-collapse  justify-content-center"
+							id="navbarCenteredExample">
+							
+								<ul class="navbar-nav" id="navBtnProject">
+									<li class="nav-item" >
+										<a class="nav-link-tab-project  " onclick="openTabProject(event, 'All')" id="defaultActiveProject" >ALL</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link-tab-project " onclick="openTabProject(event, 'Coding')" >CODING </a>
+									</li>
+									
+									<li class="nav-item">
+										<a class="nav-link-tab-project " onclick="openTabProject(event, 'Music')">MUSIC</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link-tab-project " onclick="openTabProject(event, 'Art')">ARTS</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				<div class="container pt-5">
+					<div class="content-project row justify-content-center"  id = "All">
+					{% for project in projects %}
+						<div class="col-md-4 border ">
+							<img src="{{project.image.url}}" alt="blog-image" class="project-img pt-2">
+							<div class=" project-content ps-2 pe-2 pt-4">
+								<h5 class="text">{{project.name|title}}</h5>
+								<p>{{project.content}}</p>
+							</div>
+							<div class="btn-project d-flex justify-content-between p-2">
+								<a href="" class="btn btn-primary">VIEW</a>
+								<a href="" class="btn btn-secondary">SOURCE CODE</a>
+							</div>
+						</div>
+						
+					{% endfor %}
+					</div>
+					<div class="content-project row" id = "Coding">
+					{% for project in projects %}
+						{% if project.category == "CODING" %}
+							<div class="col-md-4 border ">
+								<img src="{{project.image.url}}" alt="blog-image" class="project-img pt-2">
+								<div class=" project-content ps-2 pe-2 pt-4">
+									<h5 class="text">{{project.name|title}}</h5>
+									<p>{{project.content}}</p>
+								</div>
+								<div class="btn-project d-flex justify-content-between p-2">
+									<a href="" class="btn btn-primary">VIEW</a>
+									<a href="" class="btn btn-secondary">SOURCE CODE</a>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>	
+
+		<div class="container" id="blog-list">
+			<h5 class="section-title text-center">
+				MY RECENT BLOGS
+			</h5>
+			<p class="service-para text-center">Most of my articles are about the things I think that are important for the students and other people who want to get involve in IT.</p>
+
+			<div class="blog-list">
+				<div class="row d-flex  justify-content-evenly">
+				{% for blog in blogs %}
+					<div class="col-md-4 border shadow " id="blogs">
+						<a href="{{blog.get_absolute_url}}" class="text-decoration-none text-dark">
+						<img src="{{blog.image.url}}" alt="blog-image" class="blog-image pt-2">
+						<hr>
+						<div class="blog-card-content ps-2 pe-2">
+							
+							<h5 class="text">{{blog.title|title}}</h5>
+							<p>{{blog.intro_part|truncatechars:150}}</p>
+						</div>
+						<div class="author-date  ps-2 pe-2 d-flex justify-content-between">
+							<p class="author">{{blog.author}}</p>
+							<p>{{blog.created_at}}</p>
+						</div>
+						</a>
+					</div>
+					
+				{% endfor %}
+
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="page-footer bg-light">
+		<div class="container">
+			<div class="row ">
+				<div class="col-md-12 d-flex justify-content-center pt-4">
+					<img src="images/icons/logo.jpg" alt="logo" class="icon img-fluid" >
+					<h5 class="pt-1 m-1">RITIKWITHOUT_H</h5>
+				</div>
+				<div class="col-md-12 ">
+					<h5 class="footer-title pt-1 m-1 text-center ">FOLLOW ME</h5>
+					<div class="social-media p-2 text-center">
+						<a href="#" class="fa fa-facebook"></a>
+						<a href="#" class="fa fa-instagram"></a>
+						<a href="#" class="fa fa-pinterest"></a>
+						<a href="#" class="fa fa-github"></a>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright text-center py-3"><strong>© Copyright Reserved </strong>
+			  </div>
+		</div>
+	</footer>	
+	<script type="text/javascript" src="{% static 'website/mainjs.js' %}"></script>
+	   
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
