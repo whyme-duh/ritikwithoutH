@@ -41,15 +41,17 @@ function openTabProject(evt, tabName){
 anychart.onDocumentReady(function() {
 	// set the data
 	var data = {
-		header: ["Name", "Death toll"],
+		header: ["Name", "Skill percentage"],
 		rows: [
-			["San-Francisco (1906)", 1500],
-			["Messina (1908)", 87000],
-			["Ashgabat (1948)", 175000],
-			["Chile (1960)", 10000],
-			["Tian Shan (1976)", 242000],
-			["Armenia (1988)", 25000],
-			["Iran (1990)", 50000]
+			["HTML", 90],
+			["CSS", 60],
+			["PYTHON", 70],
+			["JAVASCIPRT", 40],
+			["DJANGO", 60],
+			["FLUTTER", 65],
+			["PHOTOSHOP", 65],
+			["OTHERS", 35],
+			
 	]};
 
 	// create the chart
@@ -57,7 +59,7 @@ anychart.onDocumentReady(function() {
 	// add the data
 	chart.data(data);
 	// set the chart title
-	chart.title("These are the skills of mine.");
+	chart.title("Below are the  tools and programming langauge I am familiar with.");
 
 	// draw
 	chart.container("barchart_values");

@@ -300,5 +300,27 @@ a {
 @media only screen and (max-width: 600px) {
   .intro-page {
     margin: 0;
+    padding: 8em;
+  }
+  .content-project {
+    padding: 0.5em;
+  }
+  .blog-list {
+    padding: 0.5em;
+  }
+  .blogs {
+    margin: 2em;
+  }
+  #blog-list {
+    margin: 0;
+  }
+  #project {
+    margin: 0;
+  }
+  #blogs {
+    padding-bottom: 2em;
+  }
+  .page-footer {
+    margin-top: 5em;
   }
 }

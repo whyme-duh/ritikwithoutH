@@ -248,9 +248,9 @@
 			<p class="service-para text-center">Most of my articles are about the things I think that are important for the students and other people who want to get involve in IT.</p>
 
 			<div class="blog-list">
-				<div class="row d-flex  justify-content-evenly">
+				<div class="row d-flex p-2 justify-content-evenly ">
 				{% for blog in blogs %}
-					<div class="col-md-4 border shadow " id="blogs">
+					<div class="col-md-4 border shadow blogs " id="blogs">
 						<a href="{{blog.get_absolute_url}}" class="text-decoration-none text-dark">
 						<img src="{{blog.image.url}}" alt="blog-image" class="blog-image pt-2">
 						<hr>
