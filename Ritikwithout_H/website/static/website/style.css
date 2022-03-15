@@ -64,7 +64,13 @@ a {
   width: 100%;
   box-shadow: 0 0 10px 5px gray;
 }
-
+.sucess-card {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
 .title {
   font-family: var(--font-nav);
   font-weight: 900;
@@ -92,8 +98,57 @@ a {
   font-size: 1.25em;
 }
 
-/* for the about page */
+/* for the contact me form */
+.heading {
+  justify-content: space-evenly;
+  font-family: var(--name-font);
+}
+.contact-title {
+  font-size: 1.5em;
+  letter-spacing: 2px;
+}
+.heading .lnr {
+  font-size: 2em;
+  padding-right: 0.5em;
+}
+.contact-container {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  padding: 10em;
+  background-color: rgba(250, 250, 250, 0.55);
+}
+.contact-me-form {
+  position: relative;
+  width: 50%;
+  min-width: 400px;
+  border-radius: 25px;
+  padding: 2em;
+  flex-direction: column;
+  background-color: rgb(205, 205, 243);
+  font-weight: 500;
+}
+.submitBtn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: var(--font-nav);
+}
+.subButton {
+  border: none;
+  font-family: var(--font-nav);
 
+  background-color: #9ef7b1;
+  padding: 0.65em;
+  border-radius: 10px;
+}
+.cancelButton {
+  background-color: #ec908a;
+  padding: 0.65em;
+  border-radius: 10px;
+}
+/* ----------- */
+/* for the about page */
 .about {
   /* border-radius: 10px;
 	border: 1px solid rgb(212, 211, 211); */

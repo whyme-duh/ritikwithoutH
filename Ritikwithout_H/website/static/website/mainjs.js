@@ -4,6 +4,27 @@ document.getElementById('defaultActive').click();
 
 document.getElementById('defaultActiveProject').click();
 
+// document.getElementById('contactWithMe').addEventListener("click", function(){
+// 	var popUp = document.getElementsByClassName('contact-me-form');
+// 	popUp.style.display = "flex";
+// 	alert("hello");
+// });
+
+
+// document.getElementById('contact').addEventListener("click", contactFunction());
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+function contactFunction(){
+	
+	document.getElementsByClassName('contact-container')[0].style.display = "flex";
+	focument.getElementById('main-body')[0].q
+
+}
+
+function cancelButton(){
+	document.getElementsByClassName('contact-container')[0].style.display = "none";
+}
 
 function openTab(evt, tabName){
 	var i, tabContent, tabLinks;
