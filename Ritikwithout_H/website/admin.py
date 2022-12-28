@@ -1,13 +1,12 @@
 from django.contrib import admin
-from website.models import Blog, Education, Experience, Project, Service, Contact
+from website.models import Blog, Education,Bio, Experience, Project, Service
 
 
 admin.site.register(Project)
 admin.site.register(Education)
 admin.site.register(Experience)
 admin.site.register(Service)
-admin.site.register(Contact)
-
+admin.site.register(Bio)
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
 	list_display = ('title','author',)

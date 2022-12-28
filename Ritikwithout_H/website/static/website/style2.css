@@ -12,23 +12,48 @@
   --text-font: "Dongle", sans-serif;
   --font-size-heading: clamp(1.5em, 10vh, 3em);
 }
+*{
+  padding: 0;
+  margin: 0;
+}
 html {
   scroll-behavior: smooth;
   height: 100%;
 }
-body {
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
+body{
+
 }
 main {
   margin: 0px 400px 0px;
 }
-.brand {
+.top-part{
+  margin: 0;
+  height: 50vh;
+  padding: 0;
+  background: rgb(138, 96, 148);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.brand { 
   font-family: var(--icon-font);
   font-size: 2em;
 }
-
+.back-btn{
+  display: flex;
+  color: white;
+  justify-content:start;
+}
+.back-btn .fa{
+  color: white;
+}
+.line{
+  height: 1px;
+  background-color: rgb(133, 86, 114);
+  width: 100%;
+}
 .author-pic {
   border-radius: 50%;
   width: 10%;
@@ -36,8 +61,31 @@ main {
   height: 100%;
 }
 .heading {
+  text-align: left;
+  display: flex;
+  padding-bottom: 2em;
+  justify-content: center;
+  flex-direction: column;
   font-family: var(--name-font);
   font-size: var(--font-size-heading);
+  color: white;
+
+}
+.blog-entry{
+  width: fit-content;
+  height:fit-content;
+  padding: 0.5em;
+  border-radius: 5px;
+  background-color: rgba(88, 86, 86,0.5);
+  margin-bottom: 2em;
+}
+.blog-publish{
+  padding-top: 1em;
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  
+
 }
 .social-media a {
   color: black;

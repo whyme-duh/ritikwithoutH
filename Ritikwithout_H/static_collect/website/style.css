@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuggles&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Fjalla+One&family=Ubuntu:wght@700&display=swap");
+
+:root {
+  --font-color: rgb(255, 255, 1);
+  --icon-font: "Ubuntu", sans-serif;
+  --family-font-title: "Otomanopee One", sans-serif;
+  --family-font: "Shadows Into Light", cursive;
+  --font-name: "Shadows Into Light", cursive;
+  --font-nav: "Ubuntu", sans-serif;
+  --name-font: "Anton", sans-serif;
+  --nav-font-size: clamp(0.85rem, 1vh, 1.2rem);
+  --section-title-font-size: clamp(1rem, 4vh, 5rem);
+}
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+body {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+#navbarNav {
+  padding-right: 1rem;
+}
+a {
+  cursor: pointer;
+}
+
+.brand {
+  font-family: var(--icon-font);
+}
+.icon {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.about .nav-item {
+  color: black;
+  padding: 1em;
+}
+.nav-link {
+  font-family: var(--font-nav);
+  font-weight: 900;
+  font-size: 1.15em;
+  color: black;
+}
+.intro-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5em;
+  padding: 10em;
+}
+
+.front-img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0 10px 5px gray;
+}
+.sucess-card {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+.title {
+  font-family: var(--font-nav);
+  font-weight: 900;
+  font-size: clamp(1rem, 1.5vw, 3rem);
+}
+.name {
+  font-family: var(--name-font);
+  font-size: clamp(2.25rem, 3vw, 5rem);
+}
+.btns {
+  padding-top: 3em;
+}
+
+.buttons {
+  border-radius: 10px;
+  color: black;
+  border: 1px solid #44d5cb;
+  font-family: var(--font-nav);
+  font-size: clamp(0.85rem, 1vh, 2rem);
+}
+.social-media a {
+  color: black;
+  text-decoration: none;
+  padding: 1em;
+  font-size: 1.25em;
+}
+
+/* for the contact me form */
+.heading {
+  justify-content: space-evenly;
+  font-family: var(--name-font);
+}
+.contact-title {
+  font-size: 1.5em;
+  letter-spacing: 2px;
+}
+.heading .lnr {
+  font-size: 2em;
+  padding-right: 0.5em;
+}
+.contact-container {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  padding: 10em;
+  background-color: rgba(250, 250, 250, 0.55);
+}
+.contact-me-form {
+  position: relative;
+  width: 50%;
+  min-width: 400px;
+  border-radius: 25px;
+  padding: 2em;
+  flex-direction: column;
+  background-color: rgb(205, 205, 243);
+  font-weight: 500;
+}
+.submitBtn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: var(--font-nav);
+}
+.subButton {
+  border: none;
+  font-family: var(--font-nav);
+
+  background-color: #9ef7b1;
+  padding: 0.65em;
+  border-radius: 10px;
+}
+.cancelButton {
+  background-color: #ec908a;
+  padding: 0.65em;
+  border-radius: 10px;
+}
+/* ----------- */
+/* for the about page */
+.about {
+  /* border-radius: 10px;
+	border: 1px solid rgb(212, 211, 211); */
+}
+.section-title {
+  font-family: var(--name-font);
+  font-size: var(--section-title-font-size);
+  background: rgb(111, 34, 193);
+  background: linear-gradient(
+    102deg,
+    rgba(111, 34, 193, 1) 30%,
+    rgba(29, 243, 255, 1) 73%
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+.nav-link-tab {
+  text-decoration: none;
+  font-family: var(--font-nav);
+  font-weight: 500;
+  font-size: var(--nav-font-size);
+  color: rgb(109, 108, 108);
+}
+.nav-link-tab.active {
+  text-decoration: none;
+  font-family: var(--font-nav);
+  font-weight: 800;
+  color: black;
+}
+.nav-link-tab:hover {
+  opacity: 0.85;
+  background: rgb(111, 34, 193);
+  background: linear-gradient(
+    102deg,
+    rgba(111, 34, 193, 1) 8%,
+    rgba(43, 29, 255, 1) 98%
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+.bg {
+  background-color: rgb(44, 43, 43);
+  /* border:1px solid rgba(106, 216, 252, 1); */
+  border-radius: 10px;
+}
+
+.about-title {
+  font-family: var(--name-font);
+}
+#navBtn {
+  overflow: hidden;
+}
+.content {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.colg-name {
+  font-weight: 500;
+}
+.time {
+  font-weight: 900;
+  font-size: 1em;
+  padding-left: 0.35em;
+}
+.card-container {
+  background-color: #d8f3dc;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 1px rgba(138, 135, 135, 0.35);
+}
+/* for the project page */
+.nav-link-tab-project {
+  text-decoration: none;
+  font-family: var(--font-nav);
+  font-weight: 500;
+  font-size: var(--nav-font-size);
+
+  color: rgb(109, 108, 108);
+}
+.nav-link-tab-project.active {
+  text-decoration: none;
+  font-family: var(--font-nav);
+  font-weight: 800;
+  color: black;
+}
+.nav-link-tab-project:hover {
+  opacity: 0.85;
+  background: rgb(111, 34, 193);
+  background: linear-gradient(
+    102deg,
+    rgba(111, 34, 193, 1) 8%,
+    rgba(43, 29, 255, 1) 98%
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+.bg-steel {
+  background-color: rgb(209, 206, 202);
+  border-radius: 5px;
+  box-shadow: 5px 5px 0px 0px rgba(58, 57, 57, 0.35);
+}
+.text {
+  font-family: var(--family-font-title);
+  font-size: 1.25em;
+}
+.project-content {
+  font-size: 1em;
+}
+.project-title {
+  font-family: var(--font-name);
+  font-weight: 800;
+}
+.project-img {
+  width: 100%;
+  height: auto;
+}
+.project-img:hover {
+  transform: scale(1.5);
+}
+.btn-project {
+  font-family: var(--font-name);
+  font-size: 10em;
+}
+
+/* service part */
+.text-title {
+  font-size: 1.8em;
+  font-family: var(--family-font);
+  text-align: center;
+  font-weight: 900;
+}
+.service-content:hover {
+  opacity: 0.85;
+  background: rgb(111, 34, 193);
+  background: linear-gradient(
+    102deg,
+    rgba(111, 34, 193, 1) 8%,
+    rgba(43, 29, 255, 1) 98%
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.service-para {
+  font-weight: 400;
+  color: grey;
+}
+.service-image {
+  width: 100%;
+  height: auto;
+}
+.lnr {
+  font-size: 3em;
+}
+/* for the blogs  */
+#blog-list {
+  margin-top: 10em;
+}
+.blog-list {
+  margin-top: 5em;
+}
+.blog-image {
+  width: 100%;
+  height: 60%;
+}
+#blogs:hover {
+  opacity: 0.5;
+}
+.author {
+  font-size: 1em;
+  font-weight: 500;
+  font-family: var(--font-nav);
+}
+/* footer  */
+.footer-title {
+  font-family: var(--family-font);
+  font-size: clamp(0.5em, 2vh, 2em);
+  background: rgb(111, 34, 193);
+  font-weight: 900;
+  background: linear-gradient(
+    102deg,
+    rgba(111, 34, 193, 1) 30%,
+    rgba(29, 243, 255, 1) 73%
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+.page-footer {
+  margin-top: 10em;
+}
+
+@media only screen and (max-width: 600px) {
+  .intro-page {
+    margin: 0;
+    padding: 8em;
+  }
+  .content-project {
+    padding: 0.5em;
+  }
+  .blog-list {
+    padding: 0.5em;
+  }
+  .blogs {
+    margin: 2em;
+  }
+  #blog-list {
+    margin: 0;
+  }
+  #project {
+    margin: 0;
+  }
+  #blogs {
+    padding-bottom: 2em;
+  }
+  .page-footer {
+    margin-top: 5em;
+  }
+}

@@ -1,8 +1,10 @@
 from dataclasses import field
-from django.forms import ModelForm
-from . models import Contact
+from django import forms
 
-class ContactForm(ModelForm):
-	class Meta:
-		model = Contact
-		fields =['email', 'subject','message',]
+class ContactForm(forms.Form):
+	name = forms.CharField(required = True)
+	email  = forms.EmailField(required= True)
+	subject = forms.CharField(required=True)
+	message = forms.CharField(required=True)
+
+	

@@ -14,4 +14,5 @@ django-js-asset==1.2.2
 django-resized==0.3.11
 Pillow==9.0.0
 tzdata==2021.5
+python-dotenv==0.21.0
 

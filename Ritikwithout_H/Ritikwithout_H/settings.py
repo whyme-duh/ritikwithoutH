@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY_SETTINGS')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', '192.168.1.66:5000']
 
 
 # Application definition
@@ -117,17 +117,16 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-CONTACT_EMAIL = 'ritikwithouth0@gmail.com'
-ADMIN_EMAIL = ['ritikshrestha94@gmail.com', ]
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_FROM_EMAIL = "ritikshrestha94@gmail.com"
 
 
 # Twilio SendGrid
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
+# EMAIL_HOST = 'smtp.sendgrid.net'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'apikey'
+# EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -135,12 +134,14 @@ EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
 STATIC_URL = 'static/'
 MEDIA_URL = "/images/"
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/images')
+
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static_collect")
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/images')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

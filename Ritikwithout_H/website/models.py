@@ -5,6 +5,13 @@ from django.db import models
 from PIL import Image
 from ckeditor.fields import RichTextField
 
+class Bio(models.Model):
+	file = models.FileField(upload_to = "files")
+
+	def __str__(self):
+		return self.file.name
+
+
 class Project(models.Model):
 	CODING = "CODING"
 	MUSIC = "MUSIC"
@@ -19,6 +26,8 @@ class Project(models.Model):
 	name = models.CharField(max_length=80)
 	image = models.ImageField(upload_to = "uploads/", null= True, blank = True)
 	content = models.TextField()
+	source_code = models.URLField(null= True)
+	view_link = models.URLField(null=True)
 	category = models.CharField(max_length=80, choices=projects_categories, blank = False, null= True)
 
 	def __str__(self) :
@@ -67,10 +76,11 @@ class Service(models.Model):
 class Blog(models.Model):
 	title = models.CharField(max_length=80)
 	author = models.CharField(max_length=50)
-	author_pic =models.ImageField(upload_to = "pictures/" , null = True, default= "images/pictures/mah.jpg")
+	# author_pic =models.ImageField(upload_to = "pictures/" , null = True, default= "images/pictures/mah.jpg")
 	body= RichTextField(blank= False, null = False)
 	image = models.ImageField(upload_to = "uploads/admin/", null = True)
 	slug= models.SlugField(null = True, unique=True)
+	blog_entry= models.CharField(max_length = 80, null = True,blank = False )
 	created_at = models.DateField(auto_now_add=True, blank = False, null = True)
 
 	def __str__(self) :
@@ -79,20 +89,13 @@ class Blog(models.Model):
 	def get_absolute_url(self):
 		return reverse('blog-detail' ,kwargs = {'slug': self.slug})
 
-	def save(self, *args, **kwargs):
-		super(Blog, self).save(*args, **kwargs)
-		img = Image.open(self.author_pic.path)
-		if img.height > 100 or img.width >100:
-			output_size = (50, 50)
-			img.thumbnail(output_size)
-			img.save(self.author_pic.path)
+	# def save(self, *args, **kwargs):
+	# 	super(Blog, self).save(*args, **kwargs)
+	# 	img = Image.open(self.author_pic.path)
+	# 	if img.height > 100 or img.width >100:
+	# 		output_size = (50, 50)
+	# 		img.thumbnail(output_size)
+	# 		img.save(self.author_pic.path)
 	
 
 
-class Contact(models.Model):
-	email = models.EmailField()
-	subject = models.CharField(max_length=100)
-	message = models.TextField()
-
-	def __str__(self):
-		return self.email	
