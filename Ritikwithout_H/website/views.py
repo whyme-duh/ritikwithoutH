@@ -1,9 +1,10 @@
 from typing import Generic
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 from .forms import ContactForm
 from django.contrib import messages
+from django.core.paginator import Paginator
 from django.conf import settings
 from django.core.mail import send_mail, BadHeaderError
 
@@ -51,11 +52,21 @@ def mainPage(request):
 		# else:
 		# 	form = ContactForm()
 		
-	return render(request , 'website/index.html', context)
+	return render(request , 'website/index2.html', context)
 
 
+def ProjectListView(request):
+	project_list = Project.objects.all()
+	paginator = Paginator(project_list, 5)
+	page_number = request.GET.get('page')
+	page_obj = paginator.get_page(page_number)
+	context = {
+		'projects' : Project.objects.all(),
+		'files' :Bio.objects.all(),
+		'page_obj' : page_obj
 
-
+	}
+	return render(request, 'website/project_detail.html', context)
 
 class BlogDetailView(DetailView):
 	model = Blog

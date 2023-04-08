@@ -32,6 +32,9 @@ const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
 
 
+
+
+
 // for caraousal
 
 const carousal = document.querySelector('.content-project');
@@ -98,7 +101,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
 		logoSpan.forEach((logo ,index)=>{
 			setTimeout(()=>{
 				logo.classList.add('active');
-			}, (index + 1) * 400)
+			}, (index + 1) * 300)
 		});
 
 		setTimeout(() =>{
@@ -176,33 +179,4 @@ function openTabProject(evt, tabName){
 
 
 
-
-
-anychart.onDocumentReady(function() {
-	// set the data
-	var data = {
-		header: ["Name", "Skill percentage"],
-		rows: [
-			["HTML", 90],
-			["CSS", 60],
-			["PYTHON", 70],
-			["JAVASCIPRT", 40],
-			["DJANGO", 60],
-			["FLUTTER", 65],
-			["PHOTOSHOP", 65],
-			["OTHERS", 35],
-			
-	]};
-
-	// create the chart
-	var chart = anychart.bar();
-	// add the data
-	chart.data(data);
-	// set the chart title
-	chart.title("Below are the  tools and programming langauge I am familiar with.");
-
-	// draw
-	chart.container("barchart_values");
-	chart.draw();
-});
 

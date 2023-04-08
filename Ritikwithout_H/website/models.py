@@ -6,10 +6,11 @@ from PIL import Image
 from ckeditor.fields import RichTextField
 
 class Bio(models.Model):
+	logo = models.ImageField(upload_to = "icons", null = True, blank= True)
 	file = models.FileField(upload_to = "files")
 
 	def __str__(self):
-		return self.file.name
+		return "CV file : " + self.file.name
 
 
 class Project(models.Model):
