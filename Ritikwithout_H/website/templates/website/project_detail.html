@@ -15,11 +15,7 @@
 
 </head>
 <body>
-	<div class="intro">
-		<h1 class="intro-header">
-			<span class="logo">Loading &nbsp; </span><span class="logo">.</span><span class="logo">.</span><span class="logo">.</span>
-		</h1>`
-	</div>
+	
 	<header>
 		<nav>
 			<a class="brand navbar-brand d-flex " href="{% url 'main-page'%}">
@@ -38,19 +34,23 @@
 				<p>Some projects are completed while some are still being developed.</p>
 			</div>
 			{% for project in page_obj %}
-				<div class="project-child child ">
-					<img src="{{project.image.url}}" alt="blog-image" class="project-img" draggable="false">
-					<div class=" project-content ps-md-2 pe-md-2 pt-md-4">
-						<h3 class="text p-1">{{project.name|title}}</h3>
-						<p class="p-1">{{project.content}}</p>
-						<div class="btn-project p-2">
-							<a href="{{project.view_link}}" class="lnr lnr-rocket">&nbsp;Launch</a>
-							<a href="{{project.source_code}}" class="lnr lnr-code">&nbsp;Source Code</a>
+					<div class="project-child child ">
+						<div class="img-part">
+							<img src="{{project.image.url}}" alt="blog-image" class="project-img" draggable="false">
+							<h5 class="category-type">{{project.category}}</h5>
+						</div>
+						<div class=" project-content ps-md-2 pe-md-2 pt-md-4">
+							<h3 class="text p-1">{{project.name|title}}</h3>
+							<p class="p-1">{{project.content}}</p>
+							<div class="btn-project p-2">
+								{%if project.category == 'Website'%}
+								<a href="{{project.view_link}}" class="lnr lnr-rocket">&nbsp;Launch</a>
+								{%endif%}
+								<a href="{{project.source_code}}" class="lnr lnr-code">&nbsp;Source Code</a>
+								
+							</div>
 						</div>
 					</div>
-					
-				</div>
-				
 			{% endfor %}
 		</div>
 		
@@ -73,7 +73,7 @@
 				{% endif %}
 			</span>
 		</div>
-		<div class="footer-copyright text-center py-3"><small>© Copyright Reserved </small>
+		<div class="footer-copyright text-center py-3"><small>© Copyright Reserved {{date}}</small>
 		</div>
 		
 	</footer>

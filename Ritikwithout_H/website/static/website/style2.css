@@ -12,6 +12,8 @@
   --text-font: "Dongle", sans-serif;
   --font-size-heading: clamp(1.5em, 10vh, 3em);
 }
+
+
 *{
   padding: 0;
   margin: 0;

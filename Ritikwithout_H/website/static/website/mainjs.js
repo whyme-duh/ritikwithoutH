@@ -35,58 +35,6 @@ hiddenElements.forEach((el) => observer.observe(el));
 
 
 
-// for caraousal
-
-const carousal = document.querySelector('.content-project');
-
-const icons = document.querySelectorAll('.projects i');
-
-firstCard = document.querySelectorAll('.project-child')[0];
-
-let firstCardWidth = firstCard.clientWidth + 30;
-
-
-
-icons.forEach((e) => {
-	e.addEventListener("click" , ()=>{
-		carousal.scrollLeft += e.id == "left" ? -firstCardWidth : firstCardWidth;
-``	})
-	
-})
-let isdragStart = false ,prevPageX, prevScrollLeft;
-
-
-
-const dragStart = (e) =>{
-	//  updating the global variable value on mouse down event
-	isdragStart = true;
-	prevPageX = e.pageX .pageX;
-	prevScrollLeft= carousal.scrollLeft;
-
-}
-
-const dragStop =(e)=>{
-	isdragStart = false;
-}
-
-const dragging = (e) =>{
-	// scolling caraousal to left according to mouse
-	if(!isdragStart) return;
-	e.preventDefault();
-	let positionDiff = e.pageX  - prevPageX;
-	carousal.scrollLeft = prevScrollLeft - positionDiff;
-}
-
-carousal.addEventListener("mousedown", dragStart);
-carousal.addEventListener("touchstart", dragStart);
-
-carousal.addEventListener("mousemove", dragging);
-carousal.addEventListener("touchmove", dragStart);
-
-carousal.addEventListener("mouseup", dragStop);
-carousal.addEventListener("mouseleave", dragStop);
-carousal.addEventListener("touchend", dragStop);
-
 
 //  this is for splash screen
 
@@ -96,7 +44,6 @@ let logo = document.querySelector('.intro-header');
 let logoSpan = document.querySelectorAll('.logo');
 
 window.addEventListener("DOMContentLoaded", ()=>{
-
 	setTimeout(()=>{
 		logoSpan.forEach((logo ,index)=>{
 			setTimeout(()=>{

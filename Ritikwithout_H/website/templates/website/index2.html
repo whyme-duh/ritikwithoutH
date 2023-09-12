@@ -20,13 +20,15 @@
 		</h1>
 	</div>
 	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<nav class="navbar navbar-expand-lg fixed-top">
 			<div class="container-fluid ps-5 pe-1 p-2">
 			  	<a class="brand navbar-brand d-flex " href="{% url 'main-page'%}">
 				  <img src="images/icons/logo.jpg" alt="logo" class="icon img-fluid" >
 				</a>
 			 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+				<span class="navbar-toggler-icon">
+					<i class="fa fa-navicon" style="font-size:28px;"></i>
+				</span>
 			  	</button>
 				
 			  	<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -49,15 +51,22 @@
 						</li>
 						
 					</ul>
+					<div class="theme-btn">
+						<a class="lnr lnr-moon " id="changeTheme" onclick="toggleTheme()"></a>
+						<a class="lnr lnr-sun " id="changeThemeSun" onclick="toggleTheme()"></a>
+					</div>
+
 				</div>
 			</div>
 		</nav>
 	</header>
 	<main id="main-body">
-		<div class="container ">
+		<div class="container-fluid">
 			<div class=" intro-page " >
 				<div class="left-side  ">
-					<img src="images/pictures/mah.png" alt="my pic" class="front-img">
+					{% for ob in files%}
+						<img src="{{ob.front_image.url}}" alt="my pic" class="front-img">
+					{%endfor %}
 					<div class="social-media p-2 text-center">
 						<a href="#" class="fa fa-facebook"></a>
 						<a href="#" class="fa fa-instagram"></a>
@@ -66,7 +75,7 @@
 					</div>
 				</div>
 				<div class="bio-content col-md-7 ps-md-5">
-					<h1 class="title">Hi, My name is <span class="name"> Ritik Lal Shrestha</span><br>aka. <span class="nickname">Whyme</span></h1>
+					<h1 class="title">Hi, My name is <span class="name"> Ritik Lal Shrestha</span><br>aka. <span class="nickname">Whyme-duh</span></h1>
                     <p>I am a student, developer and part time freelancer</p>
 					<div class="btns">
 						{% for ob in files%}
@@ -79,8 +88,7 @@
 			</div>
 		</div>
 		<div class="container about-page" >
-			<div class=" about">
-
+			<div class="about">
 				<div class="bio p-md-2 child">
 			        <h3 class="section-title text-left " id= "about">ABOUT ME</h3>
                     <h4>A dedicated Developer based in Katmandu, Nepal 📍</h4>
@@ -98,39 +106,53 @@
 							<li>Playing games <i class="fa fa-gamepad" aria-hidden="true"></i></li>
 						</ul>
 					</div>
+
 					<div class="skill-sets">
 						<h5><strong>Tech Stacks</strong></h5>
 						<div class="list">
-							<img src="/images/icons/skills/python.png" title =" Python" alt="python">
-							<img src="/images/icons/skills/flutter.png" title="Flutter"  alt="Flutter">
-							<img src="/images/icons/skills/photoshop.png" title = "Photoshop" alt="photoshop">
-							<img src="/images/icons/skills/git.png" title= "Git " alt="git">
-							<img src="/images/icons/skills/firebase.png" title= "Firebase " alt="firebase">
-							<img src="/images/icons/skills/C++.png"title= "C++ "  alt="c++">
-							<img src="/images/icons/skills/C.png" title= "C programming " alt="C programming">
+							{% for skill in skills %}
+								<img src="{{skill.skill_image.url}}" alt="{{skill.skill_name}}" title="{{skill.skill_name}}">
+							{% endfor %}
 						</div>
 					</div>
 				</div>
-				<img src="/images/pictures/ritik.jpg" alt="img" class="profile child">
+				{% for ob in files %}
+					<img src="{{ob.about_me_image.url}}" alt="profile" class="profile-img">
+				{% endfor %}
 			</div>
+			
+			
 		</div>
+		
         <div class="container hidden pb-5 pt-5" id="project">
 			<h5 class="section-title">FEATURED PROJECTS</h5>
+
 			<p class=" service-para ">All the below projects are either completed or need to be finished or just an idea. </p>
 			
 				<div class="projects pt-5 pb-md-5 pb-5">
 					<div class="content-project  child" id = "All">
-
 						{% for project in projects|slice:3 %}
 							<div class="project-child child " >
-								<img src="{{project.image.url}}" alt="blog-image" class="project-img" draggable="false">
+								<div class="img-part">
+									<img src="{{project.image.url}}" alt="blog-image" class="project-img" draggable="false">
+									<h5 class="category-type">{{project.category}}</h5>
+
+
+								</div>
 								<div class=" project-content ps-md-2 pe-md-2 pt-md-4">
-									<h3 class="text p-1">{{project.name|title}}</h3>
-									<p class="p-1">{{project.content}}</p>
-                                    <div class="btn-project p-2">
-                                        <a href="{{project.view_link}}" class="lnr lnr-rocket">&nbsp;Launch</a>
-                                        <a href="{{project.source_code}}" class="lnr lnr-code">&nbsp;Source Code</a>
-                                    </div>
+									<div class="project-content-detail">
+										<h3 class="text p-1">{{project.name|title}}</h3>
+										<p class="p-1">{{project.content}}</p>
+										<div class="btn-project p-2">
+											{%if project.category == 'Website'%}
+
+                                        <a href="{{project.view_link}`}" class="lnr lnr-rocket">&nbsp;Launch</a>
+										
+										{%endif%}
+										<a href="{{project.source_code}}" class="lnr lnr-code">&nbsp;Source Code</a>
+										
+									</div>
+									</div>
 								</div>
 								
 							</div>
@@ -138,7 +160,8 @@
 						{% endfor %}
 					</div>
 				</div>
-			<a href="{% url 'project-detail' %}"><button>See More</button></a>
+			<a href="{% url 'developing' %}" ><button>See More</button></a>
+			<!-- <a href="{% url 'project-detail' %}" ><button>See More</button></a> -->
 		</div>
 		<div class="container hidden pb-5 pt-md-5" id="Service">
 			<div class="row justify-content-start">
@@ -146,7 +169,7 @@
 					<h5 class="section-title" >MY EXPERTISE</h5>
 					<p class=" service-para ">Here are some of the fields that have expertise on.</p>
 				</div>
-				<div class="row child justify-content-evenly child" >
+				<div class="row service-list justify-content-evenly child" >
 					{% for service in services %}
 					<div class="service-content   col-md-3 col-6 justify-content-center align-items-center pt-5 pt-md-5 m-md-5">
 						<div class="text-center">
@@ -164,22 +187,25 @@
 			
 
 
-		<div class="contact " id="contact">
-			<h5 class="section-title">CONTACT ME </h5>
-			<p class="service-para">Feel free to contact me for anything.</p>
-            <div class="contact-detail child">
-				<p><i class="fa fa-phone"> </i>&nbsp;+977 9860930990</p>
-            <p><i class="fa fa-envelope"> </i>&nbsp;ritikshrestha94@gmail.com</p>
+		<div class="container">
+			<div class="contact " id="contact">
+				<h5 class="section-title">CONTACT ME </h5>
+				<p class="service-para">Feel free to contact me for anything.</p>
+				<div class="contact-detail child">
+					<p><i class="fa fa-phone"> </i>&nbsp;+977 9860930990</p>
+				<p><i class="fa fa-envelope"> </i>&nbsp;ritikshrestha94@gmail.com</p>
+				</div>
+				
 			</div>
-			
 		</div>
 	</main>
-	<footer class="page-footer bg-light">
-		<div class="footer-copyright text-center py-3"><small>© Copyright Reserved </small>
+	<footer class="page-footer ">
+		<div class="footer-copyright text-center py-3"><small>© {{date}}</small>
 		</div>
 		
 	</footer>	
 	<script defer type="text/javascript" src="{% static 'website/mainjs.js' %}"></script>
+	<script defer type="text/javascript" src="{% static 'website/style.js' %}"></script>
 	<script src="https://kit.fontawesome.com/68d1511c2c.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	

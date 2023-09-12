@@ -7,18 +7,19 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.conf import settings
 from django.core.mail import send_mail, BadHeaderError
+from datetime import datetime
 
-from website.models import Blog,  Education, Experience, Project, Service, Bio
+from website.models import Blog,  Skill, Project, Service, Bio
 
 form = ContactForm()
 context= {
 		'projects' : Project.objects.all(),
-		'educations' : Education.objects.all(),
 		'services' : Service.objects.all(),
-		'object' : Experience.objects.all(),
 		'blogs' : Blog.objects.all(),
 		'form': form,
-		'files' :Bio.objects.all()
+		'files' :Bio.objects.all(),
+		'date' : datetime.now().year,
+		'skills' :Skill.objects.all
 		# 'messages' : messages
 	}
 		
@@ -54,6 +55,10 @@ def mainPage(request):
 		
 	return render(request , 'website/index2.html', context)
 
+def developing_site(request):
+	return render(request, 'website/developing.html')
+
+
 
 def ProjectListView(request):
 	project_list = Project.objects.all()
@@ -63,7 +68,9 @@ def ProjectListView(request):
 	context = {
 		'projects' : Project.objects.all(),
 		'files' :Bio.objects.all(),
-		'page_obj' : page_obj
+		'page_obj' : page_obj,
+		'date' : datetime.now().year
+
 
 	}
 	return render(request, 'website/project_detail.html', context)

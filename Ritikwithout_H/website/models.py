@@ -8,19 +8,27 @@ from ckeditor.fields import RichTextField
 class Bio(models.Model):
 	logo = models.ImageField(upload_to = "icons", null = True, blank= True)
 	file = models.FileField(upload_to = "files")
+	about_me_image = models.ImageField(upload_to="pictures", null = True, blank= True)
+	front_image = models.ImageField(upload_to="pictures", null = True, blank= True)
 
 	def __str__(self):
 		return "CV file : " + self.file.name
 
+class Skill(models.Model):
+	skill_name = models.CharField(max_length=80, null = False, blank=True)
+	skill_image = models.ImageField(upload_to= "icons/skills" , null = True, blank= True)
+
+	def __str__(self):
+		return self.skill_name
 
 class Project(models.Model):
-	CODING = "CODING"
-	MUSIC = "MUSIC"
+	WEBSITE = "Website"
+	MOBILEAPP = "MOBILE APP"
 	ART = "ART"
 
 	projects_categories = [
-		(CODING ,"CODING" ),
-		(MUSIC , "MUSIC"),
+		(WEBSITE ,"Website" ),
+		(MOBILEAPP , "MOBILE APP"),
 		(ART, "ART"),
 	]
 

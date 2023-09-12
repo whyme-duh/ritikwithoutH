@@ -20,17 +20,16 @@
   --bio-family:'Saira Condensed', sans-serif;
   --splash-family : 'Poppins', sans-serif;
 
-  --title-color : #0d1b2a;
-  --name-color:#1b263b;
-  --section-title-color : #778da9;
-  --white-theme-bg-color : white;
-  --black-theme-bg-color:black
+ 
+
 }
+
+
 html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: var(--black-theme-bg-color);
+  background-color: var(--body-background-color);
   margin: 0 auto;
 }
 
