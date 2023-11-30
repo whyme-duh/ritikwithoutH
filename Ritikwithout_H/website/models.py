@@ -10,6 +10,10 @@ class Bio(models.Model):
 	file = models.FileField(upload_to = "files")
 	about_me_image = models.ImageField(upload_to="pictures", null = True, blank= True)
 	front_image = models.ImageField(upload_to="pictures", null = True, blank= True)
+	linkedin = models.URLField( null = True, blank= True)
+	github = models.URLField( null = True, blank= True)
+	instagram = models.URLField( null = True, blank= True)
+	pinterest = models.URLField( null = True, blank= True)
 
 	def __str__(self):
 		return "CV file : " + self.file.name

@@ -460,7 +460,7 @@ img,span{
  
 }
 .about .profile-img{
-  z-index: 1;
+  z-index: 0;
   width: 100%;
   max-width: 450px;
 }
@@ -850,6 +850,7 @@ background:var(--hover-bg);
 
 /* contact */
 
+
 .contact{
   display: flex;
   justify-content: center;
@@ -1141,5 +1142,27 @@ input[type="submit"]:hover{
   .go-home:hover{
     color: rgb(132, 128, 128);
   }
+  .contact-detail p{
+    font-size: 0.75em;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .intro-page{
+    padding: 0;
+    width: 100%;
+  }
+  .intro-page .left-side{
+    display: block;
+    width: 50%;
+  }
+  .intro-page .front-img{
+    max-width: 500px;
+    
+    width: 70%;
+  }
   
+  .intro-page .bio-content{
+    width: 50%;
+    font-size: 0.85em;
+  }
 }

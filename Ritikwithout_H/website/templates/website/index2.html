@@ -14,11 +14,11 @@
 	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 </head>
 <body>
-	<div class="intro">
+	<!-- <div class="intro">
 		<h1 class="intro-header">
 			<span class="logo">Welcome &nbsp; </span><span class="logo">To My &nbsp;</span><span class="logo"> Portfolio</span>
 		</h1>
-	</div>
+	</div> -->
 	<header>
 		<nav class="navbar navbar-expand-lg fixed-top">
 			<div class="container-fluid ps-5 pe-1 p-2">
@@ -61,18 +61,19 @@
 		</nav>
 	</header>
 	<main id="main-body">
-		<div class="container-fluid">
+		<div class="container-fluid ">
 			<div class=" intro-page " >
 				<div class="left-side  ">
 					{% for ob in files%}
-						<img src="{{ob.front_image.url}}" alt="my pic" class="front-img">
-					{%endfor %}
+					<center><img src="{{ob.front_image.url}}" alt="my pic" class="front-img"></center>
 					<div class="social-media p-2 text-center">
-						<a href="#" class="fa fa-facebook"></a>
-						<a href="#" class="fa fa-instagram"></a>
-						<a href="#" class="fa fa-pinterest"></a>
-						<a href="#" class="fa fa-github"></a>
+						<a href="{{ob.linkedin}}" class="fa fa-linkedin"></a>
+						<a href="{{ob.instagram}}" class="fa fa-instagram"></a>
+						<a href="{{ob.pinterest}}" class="fa fa-pinterest"></a>
+						<a href="{{ob.github}}" class="fa fa-github"></a>
 					</div>
+					{%endfor %}
+
 				</div>
 				<div class="bio-content col-md-7 ps-md-5">
 					<h1 class="title">Hi, My name is <span class="name"> Ritik Lal Shrestha</span><br>aka. <span class="nickname">Whyme-duh</span></h1>
@@ -160,8 +161,8 @@
 						{% endfor %}
 					</div>
 				</div>
-			<a href="{% url 'developing' %}" ><button>See More</button></a>
-			<!-- <a href="{% url 'project-detail' %}" ><button>See More</button></a> -->
+			<!-- <a href="{% url 'developing' %}" ><button>See More</button></a> -->
+			<a href="{% url 'project-detail' %}" ><button>See More</button></a>
 		</div>
 		<div class="container hidden pb-5 pt-md-5" id="Service">
 			<div class="row justify-content-start">

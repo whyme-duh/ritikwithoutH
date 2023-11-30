@@ -43,6 +43,7 @@ let intro = document.querySelector('.intro');
 let logo = document.querySelector('.intro-header');
 let logoSpan = document.querySelectorAll('.logo');
 
+
 window.addEventListener("DOMContentLoaded", ()=>{
 	setTimeout(()=>{
 		logoSpan.forEach((logo ,index)=>{
@@ -65,6 +66,16 @@ window.addEventListener("DOMContentLoaded", ()=>{
 		},2300)
 	})
 });
+
+
+
+// (function(){
+// 	if(localStorage.getItem('codeAlreadyRan') === 'null'){
+		
+// 		localStorage.setItem('codeAlreadyRan', 'true');
+// 	}
+// })();
+
 // document.getElementById('defaultActive').click();
 
 // document.getElementById('defaultActiveProject').click();
