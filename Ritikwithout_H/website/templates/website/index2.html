@@ -69,7 +69,6 @@
 					<div class="social-media p-2 text-center">
 						<a href="{{ob.linkedin}}" class="fa fa-linkedin"></a>
 						<a href="{{ob.instagram}}" class="fa fa-instagram"></a>
-						<a href="{{ob.pinterest}}" class="fa fa-pinterest"></a>
 						<a href="{{ob.github}}" class="fa fa-github"></a>
 					</div>
 					{%endfor %}
@@ -77,9 +76,11 @@
 				</div>
 				<div class="bio-content col-md-7 ps-md-5">
 					<h1 class="title">Hi, My name is <span class="name"> Ritik Lal Shrestha</span><br>aka. <span class="nickname">Whyme-duh</span></h1>
-                    <p>I am a student, developer and part time freelancer</p>
+                    
+					{% for ob in files%}
+
+					<p>{{ob.description}}</p>
 					<div class="btns">
-						{% for ob in files%}
 						<a href="{{ob.file.url}}" class="buttons text-decoration-none p-3 me-3 " download>DOWNLOAD CV</a>
 						{%endfor %}
 						<a href="#contact"  class="buttons text-decoration-none p-3" > CONTACT ME</a>
@@ -91,7 +92,7 @@
 		<div class="container about-page" >
 			<div class="about">
 				<div class="bio p-md-2 child">
-			        <h3 class="section-title text-left " id= "about">ABOUT ME</h3>
+			        <h5 class="section-title " id= "about">ABOUT ME</h5>
                     <h4>A dedicated Developer based in Katmandu, Nepal 📍</h4>
 
 					<p>Hello, My name is Ritik Lal Shrestha and I am Nepali
@@ -125,13 +126,11 @@
 			
 		</div>
 		
-        <div class="container hidden pb-5 pt-5" id="project">
+        <div class="container hidden pb-md-5 pt-md-5" id="project">
 			<h5 class="section-title">FEATURED PROJECTS</h5>
-
 			<p class=" service-para ">All the below projects are either completed or need to be finished or just an idea. </p>
-			
-				<div class="projects pt-5 pb-md-5 pb-5">
-					<div class="content-project  child" id = "All">
+				<div class="projects pt-md-5 pb-md-5">
+					<div class="content-project child" id = "All">
 						{% for project in projects|slice:3 %}
 							<div class="project-child child " >
 								<div class="img-part">
@@ -147,7 +146,7 @@
 										<div class="btn-project p-2">
 											{%if project.category == 'Website'%}
 
-                                        <a href="{{project.view_link}`}" class="lnr lnr-rocket">&nbsp;Launch</a>
+                                        <a href="{{project.view_link}}" class="lnr lnr-rocket">&nbsp;Launch</a>
 										
 										{%endif%}
 										<a href="{{project.source_code}}" class="lnr lnr-code">&nbsp;Source Code</a>
@@ -162,9 +161,12 @@
 					</div>
 				</div>
 			<!-- <a href="{% url 'developing' %}" ><button>See More</button></a> -->
+			{%if projects|length > 3 %}
 			<a href="{% url 'project-detail' %}" ><button>See More</button></a>
+			
+			{%endif%}
 		</div>
-		<div class="container hidden pb-5 pt-md-5" id="Service">
+		<div class="container hidden pb-md-5 pt-md-5" id="Service">
 			<div class="row justify-content-start">
 				<div class="col-md-6">
 					<h5 class="section-title" >MY EXPERTISE</h5>
@@ -172,7 +174,7 @@
 				</div>
 				<div class="row service-list justify-content-evenly child" >
 					{% for service in services %}
-					<div class="service-content   col-md-3 col-6 justify-content-center align-items-center pt-5 pt-md-5 m-md-5">
+					<div class="service-content   col-md-3 col-6 justify-content-center align-items-center pt-md-5 pt-md-5 m-md-5">
 						<div class="text-center">
 							<span class="lnr {{service.icon}} "></span>
 						</div>

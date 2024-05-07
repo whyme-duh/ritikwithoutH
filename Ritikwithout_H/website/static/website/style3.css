@@ -11,7 +11,9 @@
 
 :root {
   --font-color: rgb(255, 255, 1);
+  --hue-color: 224;
   --icon-font: "Ubuntu", sans-serif;
+  --first-color: hsl(var(--hue-color), 89%, 60%);
   --family-font-title: "Otomanopee One", sans-serif;
   --family-font: "Shadows Into Light", cursive;
   --font-name: "Shadows Into Light", cursive;
@@ -324,8 +326,16 @@ nav{
   }
 }
 .left-side{
+  width: 10%;
   animation: opac-animation 0.5s ease-in;
 
+}
+.home__blob {
+  width:80%;
+  fill: var(--first-color);
+}
+.home__blob-img {
+  width: 70%;
 }
 img,span{
   z-index: -2;
@@ -948,6 +958,9 @@ input[type="submit"]:hover{
 }
 
 @media only screen and (max-width: 450px) {
+  main{
+    padding: 0;
+  }
   .fa-navicon{
     color:var(--navicon-color)
   }

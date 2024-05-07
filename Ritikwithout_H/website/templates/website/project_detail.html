@@ -9,7 +9,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" type ="text/css" href="{% static 'website/project_detail.css'%}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="shortcut icon" href="images/icons/logo.jpg">
+	<link rel="shortcut icon" href="/media/images/icons/logo.jpg">
 	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 
 
@@ -18,7 +18,7 @@
 	
 	<header>
 		<nav class="navbar navbar-expand fixed-top">
-			<div class="container ps-5 pe-1 p-2">
+			<div class="container ps-1 pe-1 p-2">
 				<a class="brand navbar-brand d-flex " href="{% url 'main-page'%}">
 					{% for obj in files %}
 					<img src='{{obj.logo.url}}' alt="logo" class="icon img-fluid" >
@@ -35,7 +35,6 @@
 					<div class="social-media p-2 text-center">
 						<a href="{{ob.linkedin}}" class="fa fa-linkedin"></a>
 						<a href="{{ob.instagram}}" class="fa fa-instagram"></a>
-						<a href="{{ob.pinterest}}" class="fa fa-pinterest"></a>
 						<a href="{{ob.github}}" class="fa fa-github"></a>
 					</div>
 					{% endfor %}
@@ -49,7 +48,7 @@
 			
 	</header>
    
-	<main>
+	<main class="container">
 		<div class="content-project">
 			<div class="heading">
 				<h4>Project List</h4>
@@ -57,23 +56,24 @@
 			</div>
 			<div class="project-list">
 				{% for project in page_obj %}
-					<div class="project-child child ">
+					<div class="project-child child d-flex flex-column justify-content-between">
 						<div class="img-part">
-							<img src="{{project.image.url}}" alt="blog-image" class="project-img" draggable="false">
+							<img src="{{project.image.url}}" alt="blog-image">
 							<h5 class="category-type">{{project.category}}</h5>
 						</div>
-						<div class=" project-content ps-md-2 pe-md-2 pt-md-4">
+						<div class=" project-content ps-md-2 pe-md-2 pt-md-1">
 							<h3 class="text p-1">{{project.name|title}}</h3>
 							<p class="p-1">{{project.content}}</p>
 							<div class="btn-project p-2">
 								{%if project.category == 'Website'%}
-								<a href="{{project.view_link}}" class="lnr lnr-rocket">&nbsp;Launch</a>
+								<a href="{{project.view_link}}" class="lnr lnr-rocket" target="_blank">&nbsp;Launch</a>
 								{%endif%}
-								<a href="{{project.source_code}}" class="lnr lnr-code">&nbsp;Source Code</a>
+								<a href="{{project.source_code}}" class="lnr lnr-code" target="_blank">&nbsp;Source Code</a>
 								
 							</div>
 						</div>
 					</div>
+
 			{% endfor %}
 			</div>
 		</div>

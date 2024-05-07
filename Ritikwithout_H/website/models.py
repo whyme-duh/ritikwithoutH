@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.db import models
 from PIL import Image
 from ckeditor.fields import RichTextField
+from django.core.validators import FileExtensionValidator
 
 class Bio(models.Model):
 	logo = models.ImageField(upload_to = "icons", null = True, blank= True)
@@ -11,6 +12,7 @@ class Bio(models.Model):
 	about_me_image = models.ImageField(upload_to="pictures", null = True, blank= True)
 	front_image = models.ImageField(upload_to="pictures", null = True, blank= True)
 	linkedin = models.URLField( null = True, blank= True)
+	description = models.CharField(max_length=200, blank= True, null = True)
 	github = models.URLField( null = True, blank= True)
 	instagram = models.URLField( null = True, blank= True)
 	pinterest = models.URLField( null = True, blank= True)
@@ -37,7 +39,7 @@ class Project(models.Model):
 	]
 
 	name = models.CharField(max_length=80)
-	image = models.ImageField(upload_to = "uploads/", null= True, blank = True)
+	image = models.FileField(upload_to = "uploads/", null= True, blank = True, validators=[FileExtensionValidator(['jpeg','jpg', 'png', 'svg'])])
 	content = models.TextField()
 	source_code = models.URLField(null= True)
 	view_link = models.URLField(null=True)
