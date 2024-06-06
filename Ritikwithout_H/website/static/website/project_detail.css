@@ -267,8 +267,6 @@ footer{
 .footer-copyright{
   width: 100%;
   background-color: rgb(248, 247, 247);
-}.home__blob-img {
-  width: 360px;
 }
 
 @media only screen and (max-width:450px){

@@ -78,6 +78,10 @@ def ProjectListView(request):
 class BlogDetailView(DetailView):
 	model = Blog
 	template_name = "website/blogdetail.html"
+
+
+def resourcePage(request):
+	return render(request, 'website/resources.html')
 	
 
 

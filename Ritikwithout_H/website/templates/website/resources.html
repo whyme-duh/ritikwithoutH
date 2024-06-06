@@ -1,0 +1,89 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project List</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" type ="text/css" href="{% static 'website/project_detail.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="/media/images/icons/logo.jpg">
+	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+
+</head>
+<body>
+	
+	<header>
+		<nav class="navbar navbar-expand fixed-top">
+			<div class="container ps-1 pe-1 p-2">
+				<a class="brand navbar-brand d-flex " href="{% url 'main-page'%}">
+					{% for obj in files %}
+					<img src='{{obj.logo.url}}' alt="logo" class="icon img-fluid" >
+					{% endfor %}
+				  </a>
+			 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon">
+					<i class="fa fa-navicon" style="font-size:28px;"></i>
+				</span>
+			  	</button>
+				
+			  	<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+					{% for ob in files %}
+					<div class="social-media p-2 text-center">
+						<a href="{{ob.linkedin}}" class="fa fa-linkedin"></a>
+						<a href="{{ob.instagram}}" class="fa fa-instagram"></a>
+						<a href="{{ob.github}}" class="fa fa-github"></a>
+					</div>
+					{% endfor %}
+				</div>
+				<!-- <div class="theme-btn">
+					<a class="lnr lnr-moon " id="changeTheme" onclick="toggleTheme()"></a>
+					<a class="lnr lnr-sun " id="changeThemeSun" onclick="toggleTheme()"></a>
+				</div> -->
+			</div>
+		</nav>
+			
+	</header>
+   
+	<main class="container">
+		<div class="content-project">
+			<div class="heading">
+				<h4>Project List</h4>
+				<p>Some projects are completed while some are still being developed.</p>
+			</div>
+			<div class="project-list">
+				{% for project in page_obj %}
+					<div class="project-child child d-flex flex-column justify-content-between">
+						<div class="img-part">
+							<img src="{{project.image.url}}" alt="blog-image">
+							<h5 class="category-type">{{project.category}}</h5>
+						</div>
+						<div class=" project-content ps-md-2 pe-md-2 pt-md-1">
+							<h3 class="text p-1">{{project.name|title}}</h3>
+							<p class="p-1">{{project.content}}</p>
+							<div class="btn-project p-2">
+								{%if project.category == 'Website'%}
+								<a href="{{project.view_link}}" class="lnr lnr-rocket" target="_blank">&nbsp;Launch</a>
+								{%endif%}
+								<a href="{{project.source_code}}" class="lnr lnr-code" target="_blank">&nbsp;Source Code</a>
+								
+							</div>
+						</div>
+					</div>
+
+			{% endfor %}
+			</div>
+		</div>
+		
+	</main>
+	
+	<script defer type="text/javascript" src="{% static 'website/style.js' %}"></script>
+
+	<script defer type="text/javascript" src="{% static 'website/mainjs.js' %}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
