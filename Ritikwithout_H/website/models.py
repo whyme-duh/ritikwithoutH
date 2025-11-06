@@ -1,4 +1,4 @@
-from distutils.command.upload import upload
+
 from email.policy import default
 from django.urls import reverse
 from django.db import models
@@ -44,6 +44,7 @@ class Project(models.Model):
 	source_code = models.URLField(null= True)
 	view_link = models.URLField(null=True)
 	category = models.CharField(max_length=80, choices=projects_categories, blank = False, null= True)
+	featured = models.BooleanField(default=False, null= True, blank = True)
 
 	def __str__(self) :
 		return self.name
