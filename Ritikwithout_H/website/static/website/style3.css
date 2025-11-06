@@ -471,7 +471,7 @@ img,span{
 }
 .about .profile-img{
   z-index: 0;
-  width: 100%;
+  width: 80%;
   max-width: 450px;
 }
 
@@ -641,16 +641,24 @@ img,span{
   align-items: center;
 }
 .btn-project a{
-  padding: 0.65em;
-  text-decoration: none;
-  text-align: center;
-  margin:0.25em;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 1.35em;
-  color: white;
-
-}
+    padding-inline: 0.75em;
+    padding-block:0.5em;
+    text-decoration: none;
+    text-align: center;
+    margin:0.25em;
+    border-radius: 5px;
+    font-size: 1.35em;
+    font-family: monospace;
+    color: rgb(1, 1, 1);
+  
+  }
+  #launch{
+    background: rgb(206, 246, 194);
+  }
+  #code{
+    background: rgb(160, 183, 101);
+    font-weight: 800;
+  }
 .btn-project .fa {
   text-transform: capitalize;
   background-color: rgb(60, 175, 97);
@@ -707,6 +715,7 @@ img,span{
 } */
 
 #project button{
+  margin-top: 2em;
   position: relative;
   font-family: var(--splash-family);
   top: 30%;
@@ -1018,7 +1027,7 @@ input[type="submit"]:hover{
     font-size: 0.75em;
     width:100%;
     padding-bottom: 0;
-    margin-top: 10em;
+    margin-top: 15em;
   }
   .about{
     width: 100%;
@@ -1037,6 +1046,9 @@ input[type="submit"]:hover{
   }
   
   /* projects */
+  #project{
+    padding: 2em;
+  }
   .projects{
     width: 100%;
   }
@@ -1051,6 +1063,7 @@ input[type="submit"]:hover{
     font-size: 0.85em;
     width: 100%;
     margin: 0.5em;
+    box-shadow: 10px 10px 15px rgb(238, 235, 235);
   }
   
   .projects i{
@@ -1155,6 +1168,9 @@ input[type="submit"]:hover{
   }
   .contact-detail p{
     font-size: 0.75em;
+  }
+  #Service{
+    padding: 2em;
   }
 }
 @media only screen and (min-width: 1024px) {
