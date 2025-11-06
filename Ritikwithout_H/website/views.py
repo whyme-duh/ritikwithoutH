@@ -8,23 +8,16 @@ from django.core.paginator import Paginator
 from django.conf import settings
 from django.core.mail import send_mail, BadHeaderError
 from datetime import datetime
+import random
 
 from website.models import Blog,  Skill, Project, Service, Bio
 
 form = ContactForm()
-context= {
-		'projects' : Project.objects.all(),
-		'services' : Service.objects.all(),
-		'blogs' : Blog.objects.all(),
-		'form': form,
-		'files' :Bio.objects.all(),
-		'date' : datetime.now().year,
-		'skills' :Skill.objects.all
-		# 'messages' : messages
-	}
+
 		
 
 def mainPage(request):
+	featured_projects = Project.objects.filter(featured= True)
 	if request.method == "GET":
 		form = ContactForm()
 	if request.method == "POST":
@@ -52,6 +45,16 @@ def mainPage(request):
 		# 		return redirect('main-page')
 		# else:
 		# 	form = ContactForm()
+	context= {
+		'projects' : featured_projects,
+		'services' : Service.objects.all(),
+		'blogs' : Blog.objects.all(),
+		'form': form,
+		'files' :Bio.objects.all(),
+		'date' : datetime.now().year,
+		'skills' :Skill.objects.all
+		# 'messages' : messages
+	}
 		
 	return render(request , 'website/index2.html', context)
 
@@ -62,7 +65,7 @@ def developing_site(request):
 
 def ProjectListView(request):
 	project_list = Project.objects.all()
-	paginator = Paginator(project_list, 5)
+	paginator = Paginator(project_list, 6)
 	page_number = request.GET.get('page')
 	page_obj = paginator.get_page(page_number)
 	context = {
@@ -78,6 +81,10 @@ def ProjectListView(request):
 class BlogDetailView(DetailView):
 	model = Blog
 	template_name = "website/blogdetail.html"
+
+
+def resourcePage(request):
+	return render(request, 'website/resources.html')
 	
 
 

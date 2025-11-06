@@ -618,9 +618,7 @@ img,span{
   place-content: center;
   padding: 1em;
 }
-.btn button{
-  
-}
+
 .project-content {
   color: black;
   text-align: center;
@@ -672,7 +670,7 @@ img,span{
 }
 .lnr-rocket:hover{
   background-color: rgb(55, 157, 87);
-  color:white;
+  color:black;
 }
 .lnr-rocket{
   background-color: rgb(60, 175, 97);
